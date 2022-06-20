@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const { superUserAuth } = require('../helpers/superUserHelper')
+const { adminAuth } = require('../helpers/adminHelper')
 const { createCongregationController, getOneCongregationController, getAllCongregationsConstroller, updateOneCongregationsConstroller, deleteOneCongregationsConstroller } = require('../controllers/congregationController')
 
-router.get('/', getAllCongregationsConstroller)
-router.get('/:_id', getOneCongregationController)
-router.post('/', createCongregationController)
-router.patch('/', updateOneCongregationsConstroller)
-router.delete('/', deleteOneCongregationsConstroller)
+router.get('/', superUserAuth, getAllCongregationsConstroller)
+router.get('/:_id', adminAuth, getOneCongregationController)
+router.post('/',superUserAuth, createCongregationController)
+router.patch('/',adminAuth, updateOneCongregationsConstroller)
+router.delete('/',superUserAuth, deleteOneCongregationsConstroller)
 
 module.exports = router
