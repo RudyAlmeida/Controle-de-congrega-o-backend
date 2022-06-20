@@ -23,7 +23,6 @@ const loginHelper = async(collection, user) => {
                 user: result[0],
                 token: token
             }
-            console.log(user)
             resolve(user)
           } else {
               resolve(new Error("E-mail ou Senha não conferem"))

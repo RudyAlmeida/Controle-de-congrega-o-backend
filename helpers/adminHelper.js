@@ -2,7 +2,7 @@ require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const jwtSecret = process.env.JWT_SECRET;
 
-const superUserAuth = (req, res, next) => {
+const adminAuth = (req, res, next) => {
   const usertoken = req.headers.cookie;
   console.log(usertoken)
   if (usertoken) {
@@ -13,7 +13,7 @@ const superUserAuth = (req, res, next) => {
       if (err) {
         return res.status(401).json({ message: "Not authorized" });
       } else {
-        if (decodedToken.role == "superUser") {
+        if (decodedToken.role == "superUser" || decodedToken.role == "anciao" || decodedToken.role == "servo") {
           next();
         } else {
           return res
@@ -27,4 +27,4 @@ const superUserAuth = (req, res, next) => {
   }
 };
 
-module.exports = { superUserAuth };
+module.exports = { adminAuth };

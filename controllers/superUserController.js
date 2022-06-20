@@ -31,7 +31,7 @@ const superUserLogin = async (req, res) => {
               httpOnly: true,
               maxAge: 3 * 60 * 60 * 1000,
             });
-            res.status(200).send(result.user)
+            res.status(200).send(result)
     }
 }
 module.exports = { createSuperUserController, getOneSuperUserController, getAllSuperUsersConstroller, updateOneSuperUsersConstroller, deleteOneSuperUsersConstroller, superUserLogin }
