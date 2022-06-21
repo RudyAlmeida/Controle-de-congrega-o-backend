@@ -30,7 +30,8 @@ const superUserLogin = async (req, res) => {
             res.cookie("jwt", result.token, {
               httpOnly: true,
               maxAge: 3 * 60 * 60 * 1000,
-              sameSite: none
+              sameSite: 'none',
+              domain: 'controle-de-congreg-backend.herokuapp.com'
             });
             res.status(200).send(result)
     }
