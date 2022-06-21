@@ -5,7 +5,7 @@ const createCongregationController = async (req, res) => {
     return result instanceof Error ? res.status(400).send(result.message) : res.status(201).send(result)
 }
 const getOneCongregationController = async (req, res) => {
-    const result = await getOneCongregation(req.params._id)
+    const result = await getOneCongregation(req.body._id)
     return !result ? res.status(400).send('Erro ao recuperar Congregação') : res.status(200).send(result)
 }
 const getAllCongregationsConstroller = async (req, res) => {

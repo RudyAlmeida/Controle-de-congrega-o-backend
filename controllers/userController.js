@@ -7,7 +7,7 @@ const createUserController = async (req, res) => {
     return result instanceof Error ? res.status(400).send(result.message) : res.status(201).send(result)
 }
 const getOneUserController = async (req, res) => {
-    const result = await getOneUser(req.params._id)
+    const result = await getOneUser(req.body._id)
     return !result ? res.status(400).send('Erro ao recuperar Super User') : res.status(200).send(result)
 }
 const getAllUsersConstroller = async (req, res) => {
@@ -23,7 +23,7 @@ const deleteOneUsersConstroller = async (req, res) => {
     return !result ? res.status(400).send('Erro ao deletar Super Users') : res.status(200).send(result)
 }
 const getUsersByCongregationController = async (req, res) => {
-    const result = await getUsersByCongregation(req.params._id)
+    const result = await getUsersByCongregation(req.body._id)
     return !result ? res.status(400).send('Erro ao deletar Super Users') : res.status(200).send(result)
 }
 const userLogin = async (req, res) => {

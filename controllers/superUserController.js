@@ -7,7 +7,7 @@ const createSuperUserController = async (req, res) => {
     return result instanceof Error ? res.status(400).send(result.message) : res.status(201).send(result)
 }
 const getOneSuperUserController = async (req, res) => {
-    const result = await getOneSuperUser(req.params._id)
+    const result = await getOneSuperUser(req.body._id)
     return !result ? res.status(400).send('Erro ao recuperar Super User') : res.status(200).send(result)
 }
 const getAllSuperUsersConstroller = async (req, res) => {
