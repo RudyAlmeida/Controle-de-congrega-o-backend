@@ -28,7 +28,6 @@ const superUserLogin = async (req, res) => {
         res.status(400).send(result.message)
     } else {
             res.cookie("jwt", result.token, {
-              httpOnly: true,
               maxAge: 3 * 60 * 60 * 1000,
             });
             res.status(200).send(result)
