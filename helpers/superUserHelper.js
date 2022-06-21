@@ -6,8 +6,8 @@ const superUserAuth = (req, res, next) => {
   const usertoken = req.body.token;
   delete req.body.token
   if (usertoken) {
-    const token = usertoken.split(" ");
-    const newToken = token[1].split("=");
+    // const token = usertoken.split(" ");
+    const newToken = usertoken.split("=");
     const jwtToken = newToken[1].split(";");
     jwt.verify(jwtToken[0], jwtSecret, (err, decodedToken) => {
       if (err) {
