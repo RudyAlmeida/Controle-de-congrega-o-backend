@@ -10,7 +10,7 @@ const userRoutes = require('./routes/userRoutes')
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.use(cors({credentials: true, origin: true}))
+app.use(cors({credentials: true, origin: false, origin: 'https://relatorio-de-horas.herokuapp.com/', methods: 'GET,PUT,POST', credentials: true}))
 
 app.use('/superUsers', superUserRoutes)
 app.use('/congregation', congregationsRoutes)
