@@ -4,7 +4,6 @@ const jwtSecret = process.env.JWT_SECRET;
 
 const superUserAuth = (req, res, next) => {
   const usertoken = req.body.token;
-  console.log(req.body.token)
   delete req.body.token
   if (usertoken) {
     // const token = usertoken.split(" ");
