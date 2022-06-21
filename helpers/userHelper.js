@@ -4,6 +4,7 @@ const jwtSecret = process.env.JWT_SECRET;
 
 const userAuth = (req, res, next) => {
   const usertoken = req.body.token;
+  console.log(req.body)
   delete req.body.token
   if (usertoken) {
     const token = usertoken.split("=");
