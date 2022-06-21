@@ -4,7 +4,6 @@ const jwtSecret = process.env.JWT_SECRET;
 
 const superUserAuth = (req, res, next) => {
   const usertoken = req.headers.cookie;
-  console.log(usertoken)
   if (usertoken) {
     const token = usertoken.split(" ");
     const newToken = token[1].split("=");
