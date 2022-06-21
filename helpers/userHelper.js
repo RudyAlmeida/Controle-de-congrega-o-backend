@@ -3,7 +3,8 @@ const jwt = require("jsonwebtoken");
 const jwtSecret = process.env.JWT_SECRET;
 
 const userAuth = (req, res, next) => {
-  const usertoken = req.headers.cookie;
+  const usertoken = req.body.token;
+  delete req.body.token
   if (usertoken) {
     const token = usertoken.split("=");
     const newToken = token[1].split(" ");
