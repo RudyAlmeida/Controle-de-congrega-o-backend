@@ -10,7 +10,7 @@ const userRoutes = require('./routes/userRoutes')
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.use(cors({origin: '*'}))
+app.use(cors({credentials: true, origin: true}))
 
 app.use('/superUsers', superUserRoutes)
 app.use('/congregation', congregationsRoutes)
