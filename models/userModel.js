@@ -1,4 +1,4 @@
-const { createOne, getAll, getOne, updateOne, deleteOne, searchByParam } = require('../bd/dbMethods');
+const { createOne, getAll, getOne, updateOne, deleteOne, searchByParam, addRegistry } = require('../bd/dbMethods');
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const collection = 'user'
@@ -58,5 +58,13 @@ const getUsersByCongregation = async (_id) => {
         return error
     }
 }
+const addRegistryToUser = async (item) => {
+    try{
+        const result = await addRegistry(collection, item)
+        return result
+    }catch(error){
+        return error
+    }
+}
 
-module.exports = { createUser, getOneUser, updateUser, getAllUsers, deleteUser, getUsersByCongregation }
+module.exports = { createUser, getOneUser, updateUser, getAllUsers, deleteUser, getUsersByCongregation , addRegistryToUser}

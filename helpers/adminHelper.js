@@ -10,7 +10,6 @@ const adminAuth = (req, res, next) => {
     //const newToken = token[1].split("=");
     //const jwtToken = newToken[1].split(";");
     jwt.verify(usertoken, jwtSecret, (err, decodedToken) => {
-      console.log('Decode' + decodedToken)
       if (err) {
         return res.status(401).json({ message: "Not authorized" });
       } else {
