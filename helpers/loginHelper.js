@@ -13,7 +13,7 @@ const loginHelper = async(collection, user) => {
           if (response) {
               const maxAge = 3 * 60 * 60;
             const token = jwt.sign(
-              { id: result[0]._id, username: result[0].name, role: result[0].role },
+              { ...result[0] },
               jwtSecret,
               {
                 expiresIn: maxAge,

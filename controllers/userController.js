@@ -1,4 +1,4 @@
-const { createUser, getOneUser, updateUser, getAllUsers, deleteUser, getUsersByCongregation } = require('../models/userModel')
+const { createUser, getOneUser, updateUser, getAllUsers, deleteUser, getUsersByCongregation, addRegistryToUser } = require('../models/userModel')
 const login = require('../helpers/loginHelper')
 
 
@@ -26,6 +26,10 @@ const getUsersByCongregationController = async (req, res) => {
     const result = await getUsersByCongregation(req.body._id)
     return !result ? res.status(400).send('Erro ao deletar Super Users') : res.status(200).send(result)
 }
+const addRegistryToUserController = async (req, res) => {
+    const result = await addRegistryToUser(req.body)
+    return !result ? res.status(400).send('Erro ao adicionar registros') : res.status(200).send(result)
+}
 const userLogin = async (req, res) => {
     const result = await login('user', req.body)
     if(result instanceof Error){
@@ -42,4 +46,4 @@ const userLogin = async (req, res) => {
 }
 
 
-module.exports = { createUserController, getOneUserController, getAllUsersConstroller, updateOneUsersConstroller, deleteOneUsersConstroller, getUsersByCongregationController, userLogin }
+module.exports = { createUserController, getOneUserController, getAllUsersConstroller, updateOneUsersConstroller, deleteOneUsersConstroller, getUsersByCongregationController, userLogin, addRegistryToUserController }
